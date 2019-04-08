@@ -1,0 +1,37 @@
+{
+  "name": "m2webpack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-jest": "^15.0.0",
+    "babel-loader": "^6.4.1",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "css-loader": "^0.28.11",
+    "eslint": "^5.16.0",
+    "eslint-plugin-react": "^7.12.4",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "gulp": "^3.9.1",
+    "jest-cli": "^15.1.1",
+    "react-hot-loader": "^3.1.3",
+    "standard": "^12.0.1",
+    "standard-loader": "^4.0.0",
+    "webpack": "^1.15.0",
+    "webpack-dev-server": "^1.16.5",
+    "webpack-validator": "^3.0.1"
+  },
+  "dependencies": {
+    "react": "^15.6.2",
+    "react-dom": "^15.6.2"
+  }
+}
