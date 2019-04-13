@@ -10,6 +10,7 @@ new webpackDevServer(webpack(config), {
   historyApiFallback: true,
   stats: { colors: true }
 }).listen(7001, err => {
-  if (err) console.log('Erro de Servidor =>', err)
-  console.log('Servidor Ativo na Porta 7001')
+  err ?
+    console.log('Erro de Servidor =>', err) :
+    console.log('Servidor Ativo na Porta 7001')
 })
