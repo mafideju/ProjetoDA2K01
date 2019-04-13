@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Title from '../components/Title';
 import Square from '../components/Square';
 import Button from '../components/Button';
+import './App.css';
 
 class App extends Component {
   constructor(props) {
