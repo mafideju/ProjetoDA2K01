@@ -13,7 +13,7 @@ class App extends Component {
   }
 
   handleClick(e) {
-    console.log('EVENTS =>', e)
+    console.log('VIM B EVENTS =>', e)
   }
 
   render() {
@@ -21,7 +21,7 @@ class App extends Component {
       <div>
         <Title title='React com Da2k' />
         <div style={{ display: 'flex' }}>
-          {['red', 'yellow', 'green'].map((color, index) => (
+          {['red', 'yellow', 'green', 'lightblue', '#333'].map((color, index) => (
             <Square
               color={color}
               key={index}
