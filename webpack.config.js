@@ -8,7 +8,7 @@ module.exports = validate({
   devtool: 'source-map',
   entry: [
     'react-hot-loader/patch',
-    'webpack-dev-server/client?http://localhost:7001',
+    'webpack-dev-server/client?http://localhost:7711',
     'webpack/hot/only-dev-server',
     path.join(__dirname, 'src', 'index')
   ],
