@@ -1,49 +1,36 @@
-import React from 'react'
-import Search from '../components/Search'
-import UserInfo from '../components/UserInfo'
-import Actions from '../components/Actions';
-import Repos from '../components/Repos';
-import Starred from '../components/Starred';
+import React, { Component } from 'react'
+import AppContent from './AppContent';
 
-export default function App() {
-  return (
-    <div className="app">
-      <Search />
-      <UserInfo />
-      <Actions />
-      <Repos
-        className="repos"
-        title="Repositórios"
-        repos={[
-          {
-            name: "Mafideju",
-            link: "#"
-          },
-          {
-            name: "Fábrica",
-            link: "#"
-          },
-          {
-            name: "Maconha",
-            link: "#"
-          }
-        ]}
+
+export default class App extends Component {
+  constructor(){
+    super();
+    this.state = {
+      userinfo: {
+        username: 'Marcio Mafideju',
+        repos: 100,
+        followers: 0,
+        following: 3,
+      },
+      repos: [{
+        name: 'Repos  Test',
+        link: '#'
+      }],
+      starred: [{
+        name: 'Starred  Test',
+        link: '#'
+      }],
+    }
+  }
+  render() {
+    return (
+      <AppContent 
+        userinfo={this.state.userinfo}
+        repos={this.state.repos}
+        starred={this.state.starred}
       />
-      <Starred
-        className="starred"
-        title="Favoritos"
-        repos={[
-          {
-            name: "Favoritos do Mafideju",
-            link: "#"
-          },
-          {
-            name: "Favoritos do Fábrica",
-            link: "##"
-          },
-        ]}
-      />
-    </div>
-  )
+    )
+  }
 }
+
 // https://api.github.com/users/mafideju
