@@ -8,28 +8,19 @@ import Starred from '../components/Starred';
 export default function AppContent({ userinfo, repos, starred }) {
     return (
         <div className="app">
-        <Search />
-        {userinfo && <UserInfo userinfo={userinfo}/>}
-        {userinfo && <Actions />}
-        {repos.length && <Repos
-          className="repos"
-          title="Repositórios"
-          repos={repos}
-        />}
-        {starred.length && <Starred
-          className="starred"
-          title="Favoritos"
-          repos={[
-            {
-              name: "Favoritos do Mafideju",
-              link: "#"
-            },
-            {
-              name: "Favoritos do Fábrica",
-              link: "##"
-            },
-          ]}
-        />}
+          <Search />
+          {userinfo && <UserInfo userinfo={userinfo}/>}
+          {userinfo && <Actions />}
+          {repos.length && <Repos
+            className="repos"
+            title="Repositórios"
+            repos={repos}
+          />}
+          {starred.length && <Starred
+            className="starred"
+            title="Favoritos"
+            repos={starred}
+          />}
       </div>
     )
 }

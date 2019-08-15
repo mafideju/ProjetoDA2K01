@@ -8,6 +8,8 @@ export default class App extends Component {
     this.state = {
       userinfo: {
         username: 'Marcio Mafideju',
+        photo: 'https://avatars0.githubusercontent.com/u/34278662?v=4',
+        login: 'mafideju',
         repos: 100,
         followers: 0,
         following: 3,
