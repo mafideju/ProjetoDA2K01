@@ -1,35 +1,51 @@
 import React, { Component } from 'react'
 import AppContent from './AppContent';
+import Axios from 'axios';
 
 
 export default class App extends Component {
-  constructor(){
+  constructor() {
     super();
     this.state = {
       userinfo: {
-        username: 'Marcio Mafideju',
-        photo: 'https://avatars0.githubusercontent.com/u/34278662?v=4',
-        login: 'mafideju',
-        repos: 100,
+        username: '',
+        photo: '',
+        login: '',
+        repos: 0,
         followers: 0,
-        following: 3,
+        following: 0,
       },
-      repos: [{
-        name: 'Repos  Test',
-        link: '#'
-      }],
-      starred: [{
-        name: 'Starred  Test',
-        link: '#'
-      }],
+      repos: [],
+      starred: [],
     }
   }
+
+  handleSearch = e => {
+    Axios
+      .get(`https://api.github.com/users/${e.target.value}`)
+      .then(result => {
+        console.log("RESULT =>", result)
+        this.setState({
+          userinfo: {
+            username: result.data.name,
+            photo: result.data.avatar_url,
+            login: result.data.login,
+            repos: result.data.public_repos,
+            followers: result.data.followers,
+            following: result.data.following,
+          }
+        })
+      })
+  }
+
+
   render() {
     return (
-      <AppContent 
+      <AppContent
         userinfo={this.state.userinfo}
         repos={this.state.repos}
         starred={this.state.starred}
+        handleSearch={e => this.handleSearch(e)}
       />
     )
   }
