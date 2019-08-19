@@ -24,7 +24,6 @@ export default class App extends Component {
     Axios
       .get(`https://api.github.com/users/${e.target.value}`)
       .then(result => {
-        console.log("RESULT =>", result)
         this.setState({
           userinfo: {
             username: result.data.name,
@@ -33,11 +32,29 @@ export default class App extends Component {
             repos: result.data.public_repos,
             followers: result.data.followers,
             following: result.data.following,
-          }
+          },
+          repos: [],
+          starred: []
         })
       })
   }
 
+  getRepos = (type) => {
+    return (e) => {
+      Axios
+      .get(`https://api.github.com/users/${this.state.userinfo.login}/${type}`)
+      .then(result => {
+        this.setState({
+          [type]: result.data.map(repo => {
+            return {
+              name: repo.name,
+              link: repo.html_url,
+            }
+          })
+        })
+      })
+    }
+  }
 
   render() {
     return (
@@ -46,6 +63,8 @@ export default class App extends Component {
         repos={this.state.repos}
         starred={this.state.starred}
         handleSearch={e => this.handleSearch(e)}
+        getRepos={this.getRepos('repos')}
+        getStarred={this.getRepos('starred')}
       />
     )
   }

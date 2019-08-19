@@ -5,12 +5,19 @@ import Actions from '../components/Actions';
 import Repos from '../components/Repos';
 import Starred from '../components/Starred';
 
-export default function AppContent({ userinfo, repos, starred, handleSearch }) {
+export default function AppContent({ 
+  userinfo, 
+  repos, 
+  starred, 
+  handleSearch, 
+  getRepos, 
+  getStarred
+ }) {
   return (
     <div className="app">
       <Search handleSearch={handleSearch} />
       {userinfo && <UserInfo userinfo={userinfo} />}
-      {userinfo && <Actions />}
+      {userinfo && <Actions getRepos={getRepos} getStarred={getStarred}/>}
       {repos.length && <Repos
         className="repos"
         title="Repositórios"
@@ -29,4 +36,6 @@ AppContent.propTypes = {
   userinfo: PropTypes.object.isRequired,
   repos: PropTypes.array.isRequired,
   starred: PropTypes.array.isRequired,
+  getRepos: PropTypes.func,
+  getStarred: PropTypes.func,
 }
