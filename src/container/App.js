@@ -7,14 +7,7 @@ export default class App extends Component {
   constructor() {
     super();
     this.state = {
-      userinfo: {
-        username: '',
-        photo: '',
-        login: '',
-        repos: 0,
-        followers: 0,
-        following: 0,
-      },
+      userinfo: null,
       repos: [],
       starred: [],
     }
@@ -40,7 +33,7 @@ export default class App extends Component {
   }
 
   getRepos = (type) => {
-    return (e) => {
+    return () => {
       Axios
       .get(`https://api.github.com/users/${this.state.userinfo.login}/${type}`)
       .then(result => {
@@ -70,4 +63,15 @@ export default class App extends Component {
   }
 }
 
-// https://api.github.com/users/mafideju
+
+      // onKeyUp={e => {
+      //   const value = e.target.value;
+      //   const keyCode = e.which || e.keyCode;
+      //   if (keyCode === 13) {
+      //     Axios
+      //       .get(`https://api.github.com/users/${value}`)
+      //       .then(result => {
+      //         console.log(result)
+      //       })
+      //   }
+      // }}

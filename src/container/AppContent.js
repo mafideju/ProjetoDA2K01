@@ -33,9 +33,9 @@ export default function AppContent({
 }
 
 AppContent.propTypes = {
-  userinfo: PropTypes.object.isRequired,
-  repos: PropTypes.array.isRequired,
-  starred: PropTypes.array.isRequired,
+  userinfo: PropTypes.object,
+  repos: PropTypes.array,
+  starred: PropTypes.array,
   getRepos: PropTypes.func,
   getStarred: PropTypes.func,
 }
