@@ -10,10 +10,16 @@ export default class App extends Component {
       userinfo: null,
       repos: [],
       starred: [],
+      isFetching: false
     }
   }
 
   handleSearch = e => {
+    // if (onKeyUp) {
+    //   this.setState({
+    //     isFetching: true
+    //   })
+    // }
     Axios
       .get(`https://api.github.com/users/${e.target.value}`)
       .then(result => {
@@ -29,6 +35,9 @@ export default class App extends Component {
           repos: [],
           starred: []
         })
+        // this.setState({
+        //   isFetching: false
+        // })
       })
   }
 
@@ -55,6 +64,7 @@ export default class App extends Component {
         userinfo={this.state.userinfo}
         repos={this.state.repos}
         starred={this.state.starred}
+        isFetching={this.state.isFetching}
         handleSearch={e => this.handleSearch(e)}
         getRepos={this.getRepos('repos')}
         getStarred={this.getRepos('starred')}

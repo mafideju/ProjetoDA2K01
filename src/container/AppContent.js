@@ -11,11 +11,13 @@ export default function AppContent({
   starred, 
   handleSearch, 
   getRepos, 
-  getStarred
+  getStarred,
+  isFetching
  }) {
   return (
     <div className="app">
       <Search handleSearch={handleSearch} />
+      {isFetching && <h2>Carregando...</h2>}
       {userinfo && <UserInfo userinfo={userinfo} />}
       {userinfo && <Actions getRepos={getRepos} getStarred={getStarred}/>}
       {repos.length && <Repos
@@ -36,6 +38,7 @@ AppContent.propTypes = {
   userinfo: PropTypes.object,
   repos: PropTypes.array,
   starred: PropTypes.array,
+  handleSearch: PropTypes.func,
   getRepos: PropTypes.func,
   getStarred: PropTypes.func,
 }
