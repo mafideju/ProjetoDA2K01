@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
-import AppContent from './AppContent';
+import React, { Component } from 'react';
 import Axios from 'axios';
+import AppContent from './AppContent';
 
 
 export default class App extends Component {
@@ -10,11 +10,11 @@ export default class App extends Component {
       userinfo: null,
       repos: [],
       starred: [],
-      isFetching: false
-    }
+      isFetching: false,
+    };
   }
 
-  handleSearch = e => {
+  handleSearch = (e) => {
     // if (onKeyUp) {
     //   this.setState({
     //     isFetching: true
@@ -22,7 +22,7 @@ export default class App extends Component {
     // }
     Axios
       .get(`https://api.github.com/users/${e.target.value}`)
-      .then(result => {
+      .then((result) => {
         this.setState({
           userinfo: {
             username: result.data.name,
@@ -33,55 +33,53 @@ export default class App extends Component {
             following: result.data.following,
           },
           repos: [],
-          starred: []
-        })
+          starred: [],
+        });
         // this.setState({
         //   isFetching: false
         // })
-      })
+      });
   }
 
-  getRepos = (type) => {
-    return () => {
-      Axios
+  getRepos = (type) => () => {
+    Axios
       .get(`https://api.github.com/users/${this.state.userinfo.login}/${type}`)
-      .then(result => {
+      .then((result) => {
         this.setState({
-          [type]: result.data.map(repo => {
-            return {
-              name: repo.name,
-              link: repo.html_url,
-            }
-          })
-        })
-      })
-    }
+          [type]: result.data.map((repo) => ({
+            name: repo.name,
+            link: repo.html_url,
+          })),
+        });
+      });
   }
 
   render() {
     return (
+      // eslint-disable-next-line react/jsx-filename-extension
       <AppContent
+        className="black"
         userinfo={this.state.userinfo}
         repos={this.state.repos}
         starred={this.state.starred}
         isFetching={this.state.isFetching}
-        handleSearch={e => this.handleSearch(e)}
+        handleSearch={(e) => this.handleSearch(e)}
         getRepos={this.getRepos('repos')}
         getStarred={this.getRepos('starred')}
       />
-    )
+    );
   }
 }
 
 
-      // onKeyUp={e => {
-      //   const value = e.target.value;
-      //   const keyCode = e.which || e.keyCode;
-      //   if (keyCode === 13) {
-      //     Axios
-      //       .get(`https://api.github.com/users/${value}`)
-      //       .then(result => {
-      //         console.log(result)
-      //       })
-      //   }
-      // }}
+// onKeyUp={e => {
+//   const value = e.target.value;
+//   const keyCode = e.which || e.keyCode;
+//   if (keyCode === 13) {
+//     Axios
+//       .get(`https://api.github.com/users/${value}`)
+//       .then(result => {
+//         console.log(result)
+//       })
+//   }
+// }}

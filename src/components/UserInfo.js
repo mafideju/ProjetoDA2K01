@@ -1,4 +1,5 @@
-import React,  { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 export default function UserInfo({ userinfo }) {
   return (
@@ -13,12 +14,24 @@ export default function UserInfo({ userinfo }) {
       </h2>
 
       <ul>
-        <li>Repositórios: {userinfo.repos}</li>
-        <li>Seguidores: {userinfo.followers}</li>
-        <li>Seguindo: {userinfo.following}</li>
+        <li>
+          Repositórios:
+          {' '}
+          {userinfo.repos}
+        </li>
+        <li>
+          Seguidores:
+          {' '}
+          {userinfo.followers}
+        </li>
+        <li>
+          Seguindo:
+          {' '}
+          {userinfo.following}
+        </li>
       </ul>
     </div>
-  )
+  );
 }
 
 UserInfo.propTypes = {
@@ -29,5 +42,5 @@ UserInfo.propTypes = {
     following: PropTypes.number.isRequired,
     photo: PropTypes.string.isRequired,
     login: PropTypes.string.isRequired,
-  }).isRequired
-}
+  }).isRequired,
+};

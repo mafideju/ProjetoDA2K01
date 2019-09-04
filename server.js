@@ -11,7 +11,7 @@ new webpackDevServer(webpack(config), {
   historyApiFallback: true,
   stats: { colors: true }
 }).listen(PORT, erro => {
-  erro ?
-    console.log('Erro de Servidor =>', erro) :
-    console.log(`Servidor Ativo na Porta ${PORT}`)
+  erro
+    ? console.log('Erro no Servidor => ', erro)
+    : console.log(`Webpack Developer Server Ativo na Porta ${PORT}`)
 })
