@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
 import AppContent from './AppContent';
-
+import '../style/style.css';
 
 export default class App extends Component {
   constructor() {
@@ -42,8 +42,9 @@ export default class App extends Component {
   }
 
   getRepos = (type) => () => {
+    const { userinfo } = this.state;
     Axios
-      .get(`https://api.github.com/users/${this.state.userinfo.login}/${type}`)
+      .get(`https://api.github.com/users/${userinfo.login}/${type}`)
       .then((result) => {
         this.setState({
           [type]: result.data.map((repo) => ({
@@ -55,14 +56,18 @@ export default class App extends Component {
   }
 
   render() {
+    const {
+      userinfo,
+      repos,
+      starred,
+      isFetching,
+    } = this.state;
     return (
-      // eslint-disable-next-line react/jsx-filename-extension
       <AppContent
-        className="black"
-        userinfo={this.state.userinfo}
-        repos={this.state.repos}
-        starred={this.state.starred}
-        isFetching={this.state.isFetching}
+        userinfo={userinfo}
+        repos={repos}
+        starred={starred}
+        isFetching={isFetching}
         handleSearch={(e) => this.handleSearch(e)}
         getRepos={this.getRepos('repos')}
         getStarred={this.getRepos('starred')}

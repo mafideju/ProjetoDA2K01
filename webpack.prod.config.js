@@ -1,23 +1,18 @@
 /* eslint-disable indent */
 /* eslint-disable no-undef */
+
+
 const path = require('path');
 const webpack = require('webpack');
-const DashboardPlugin = require('webpack-dashboard/plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
 const validate = require('webpack-validator');
 
 module.exports = validate({
-  entry: [
-    'react-hot-loader/patch',
-    'webpack-dev-server/client?http://localhost:7711',
-    'webpack/hot/only-dev-server',
-    path.join(__dirname, 'src', 'index'),
-  ],
+  entry: path.join(__dirname, 'src', 'index'),
   output: {
     path: path.join(__dirname, 'dist'),
     filename: '[name]-[hash].js',
-    publicPath: '',
   },
   module: {
     loaders: [
@@ -30,18 +25,26 @@ module.exports = validate({
         test: /\.css$/,
         exclude: /node_modules/,
         include: /src/,
-        loaders: ['style-loader', 'css-loader?modules'],
+        loader: ExtractTextWebpackPlugin.extract('style-loader', 'css-loader'),
       },
     ],
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       title: 'Github Finder',
       template: path.join(__dirname, 'src', 'index.html'),
     }),
     new ExtractTextWebpackPlugin('[name]-[hash].css'),
-    new DashboardPlugin(),
+    new webpack.DefinePlugin({
+      'process.env': {
+        // eslint-disable-next-line quote-props
+        'NODE_ENV': '"production"',
+      },
+    }),
+    new webpack.optimize.UglifyJsPlugin({
+      compress: { warnings: false },
+    }),
+    new webpack.optimize.DedupePlugin(),
+    new webpack.optimize.OccurrenceOrderPlugin(),
   ],
-  // devtools: 'source-map',
 });

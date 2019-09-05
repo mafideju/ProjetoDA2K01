@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './SearchStyle.css';
 
 export default function Search({ handleSearch }) {
   return (
     <div className="search">
       <input
+        className={styles.black}
         type="search"
         placeholder="Digite o Nome do Usuário"
-        style={{ width: '20rem', height: '2rem', margin: '1rem 0' }}
         onChange={handleSearch}
       />
     </div>

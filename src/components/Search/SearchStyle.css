@@ -1,0 +1,8 @@
+.black {
+  background-color: rgba(183, 173, 175, 0.356);
+  color: white!important;
+  font-weight: bolder;
+  height: 2rem; 
+  margin: 1rem 0;
+  width: 30rem; 
+}  
