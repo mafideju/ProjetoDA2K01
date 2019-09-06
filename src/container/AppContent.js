@@ -1,5 +1,3 @@
-/* eslint-disable react/forbid-prop-types */
-/* eslint-disable react/require-default-props */
 import React from 'react';
 import PropTypes from 'prop-types';
 import Search from '../components/Search';
@@ -42,9 +40,19 @@ export default function AppContent({
 }
 
 AppContent.propTypes = {
-  userinfo: PropTypes.object,
-  repos: PropTypes.array,
-  starred: PropTypes.array,
+  userinfo: PropTypes.objectOf(PropTypes.object),
+  repos: PropTypes.arrayOf(
+    PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+    ]),
+  ),
+  starred: PropTypes.arrayOf(
+    PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+    ]),
+  ),
   handleSearch: PropTypes.func,
   getRepos: PropTypes.func,
   getStarred: PropTypes.func,
