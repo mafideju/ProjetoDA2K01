@@ -38,10 +38,17 @@ module.exports = validate({
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       title: 'Github Finder',
-      template: path.join(__dirname, 'src', 'index.html'),
+      template: path.join(__dirname, 'src', 'index-dev.html'),
     }),
     new ExtractTextWebpackPlugin('[name]-[hash].css'),
     new DashboardPlugin(),
   ],
+  resolve: {
+    alias: {
+      src: path.join(__dirname, 'src'),
+      components: path.join(__dirname, 'src', 'components'),
+      container: path.join(__dirname, 'src', 'container'),
+    },
+  },
   // devtools: 'source-map',
 });

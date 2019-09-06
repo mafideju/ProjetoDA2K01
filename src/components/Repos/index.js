@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -9,8 +10,8 @@ export default function Repos({ className, title, repos }) {
 :
       </h3>
       <ul>
-        {repos.map((repo, idx) => (
-          <li key={idx}>
+        {repos.map((repo, i) => (
+          <li key={i}>
             <a href={repo.link}>{repo.name}</a>
           </li>
         ))}
@@ -22,5 +23,10 @@ export default function Repos({ className, title, repos }) {
 Repos.propTypes = {
   className: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  repos: PropTypes.array,
+  repos: PropTypes.arrayOf(
+    PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+    ]),
+  ),
 };

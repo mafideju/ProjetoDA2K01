@@ -20,9 +20,15 @@
         "react"
     ],
     "rules": {
+        "import/extensions": "off",
         "react/jsx-filename-extension": [
             0
         ],
-        "import/extensions": "off"
+        "react/require-default-props": [
+            0
+        ],
+        "react/button-has-type": [
+            1
+        ]
     }
 }

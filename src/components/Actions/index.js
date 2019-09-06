@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 export default function Actions({ getRepos, getStarred }) {
   return (
     <div className="actions">
-      <button onClick={getRepos}>Ver Repositórios</button>
-      <button onClick={getStarred}>Ver Favoritos</button>
+      <button type="button" onClick={getRepos}>Ver Repositórios</button>
+      <button type="button" onClick={getStarred}>Ver Favoritos</button>
     </div>
   );
 }
