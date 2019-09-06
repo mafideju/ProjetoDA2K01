@@ -29,6 +29,12 @@
         ],
         "react/button-has-type": [
             1
+        ],
+        "react/jsx-one-expression-per-line": [
+            0
         ]
     }
 }
+// 0 => OFF
+// 1 => WARN
+// 2 => ERROR
