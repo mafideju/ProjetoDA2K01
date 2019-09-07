@@ -20,6 +20,12 @@ module.exports = validate({
     publicPath: '',
   },
   module: {
+    preLoaders: [{
+      test: /\.js$/,
+      exclude: /node_modules/,
+      include: /src/,
+      loader: 'standard',
+    }],
     loaders: [
       {
         test: /\.js$/,

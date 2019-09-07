@@ -6,8 +6,7 @@ export default function Repos({ className, title, repos }) {
   return (
     <div className={className}>
       <h3>
-        {title}
-:
+        {title}:
       </h3>
       <ul>
         {repos.map((repo, i) => (
@@ -20,8 +19,13 @@ export default function Repos({ className, title, repos }) {
   );
 }
 
+Repos.defaultProps = {
+  className: '',
+  repos: [],
+};
+
 Repos.propTypes = {
-  className: PropTypes.string.isRequired,
+  className: PropTypes.string,
   title: PropTypes.string.isRequired,
   repos: PropTypes.arrayOf(
     PropTypes.oneOfType([

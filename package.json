@@ -9,8 +9,8 @@
     "build:hard": "webpack --progress --config webpack.prod.config -p",
     "build": "cross-env NODE_ENV=production npm run build:hard",
     "lint": "eslint src/**/*.js",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "storybook": "start-storybook -p 6006 -c storybook",
+    "build-storybook": "build-storybook -c storybook"
   },
   "keywords": [],
   "author": "",
@@ -43,10 +43,10 @@
     "standard": "^12.0.1",
     "standard-loader": "^4.0.0",
     "style-loader": "^1.0.0",
-    "webpack-dashboard": "^3.1.0",
-    "@kadira/storybook": "^2.21.0"
+    "webpack-dashboard": "^3.1.0"
   },
   "dependencies": {
+    "@kadira/storybook": "^2.30.1",
     "axios": "^0.19.0",
     "chalk": "^2.4.2",
     "extract-text-webpack-plugin": "^1.0.1",
@@ -54,7 +54,6 @@
     "prop-types": "^15.7.2",
     "react": "^15.6.2",
     "react-dom": "^15.6.2",
-    "storyboard": "^3.1.4",
     "webpack": "^1.15.0",
     "webpack-dev-server": "^1.16.5",
     "webpack-validator": "^3.0.1"
