@@ -43,7 +43,39 @@ describe('PAGINATION TEST SUITE', () => {
     expectChai(pagination({ total: 6, activePage: 6 })).to.be.deep.equal([1, '...', 4, 5, 6]);
   });
 
-  it('PAGINATION 6 SHOULD RETURN [1, \'...\', 6, \'...\', 8]', () => {
+  it('PAGINATION 10 SHOULD RETURN [1, \'...\', 6, \'...\', 8]', () => {
     expectChai(pagination({ total: 10, activePage: 6 })).to.be.deep.equal([1, '...', 5, 6, 7, '...', 10]);
+  });
+
+  it('PAGINATION 15 SHOULD RETURN [1, \'...\', 6, \'...\', 8]', () => {
+    expectChai(pagination({ total: 15, activePage: 10 })).to.be.deep.equal([1, '...', 9, 10, 11, '...', 15]);
+  });
+
+  it('PAGINATION 15 WITH NO ACTIVE PAGE SHOULD RETURN', () => {
+    expectChai(pagination({ total: 15 })).to.be.deep.equal([1, 2, 3, '...', 15]);
+  });
+
+  it('PAGINATION 15 WITH NO ACTIVE PAGE and TOTAL SHOULD RETURN', () => {
+    expectChai(pagination({})).to.be.deep.equal([1]);
+  });
+
+  it('PAGINATION 15 WITH NO PARAMS SHOULD RETURN', () => {
+    expectChai(pagination()).to.be.deep.equal([1]);
+  });
+
+  it('PAGINATION SHOULD THROW AN ERROR', () => {
+    try {
+      pagination({ total: 'string', activePage: 1 });
+    } catch (e) {
+      expectChai(e.message).to.be.equal('Total is Not a Number => Total isNaN.');
+    }
+  });
+
+  it('PAGINATION SHOULD THROW AN ERROR', () => {
+    try {
+      pagination({ total: 10, activePage: 'string' });
+    } catch (e) {
+      expectChai(e.message).to.be.equal('Active Page is Not a Number => Active Page isNaN.');
+    }
   });
 });

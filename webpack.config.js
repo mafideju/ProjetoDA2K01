@@ -54,6 +54,7 @@ module.exports = validate({
       src: path.join(__dirname, 'src'),
       components: path.join(__dirname, 'src', 'components'),
       container: path.join(__dirname, 'src', 'container'),
+      utils: path.join(__dirname, 'src', 'utils', 'pagination'),
     },
   },
   // devtools: 'source-map',

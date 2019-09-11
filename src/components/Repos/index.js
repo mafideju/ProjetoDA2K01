@@ -1,6 +1,7 @@
-/* eslint-disable react/no-array-index-key */
 import React from 'react';
 import PropTypes from 'prop-types';
+import uuid from 'uuid';
+import Pagination from '../Pagination';
 
 export default function Repos({ className, title, repos }) {
   return (
@@ -9,12 +10,13 @@ export default function Repos({ className, title, repos }) {
         {title}:
       </h3>
       <ul>
-        {repos.map((repo, i) => (
-          <li key={i}>
+        {repos.map((repo) => (
+          <li key={uuid()}>
             <a href={repo.link}>{repo.name}</a>
           </li>
         ))}
       </ul>
+      <Pagination total={10} />
     </div>
   );
 }

@@ -1,4 +1,10 @@
-const pagination = ({ total, activePage }) => {
+const pagination = ({ total = 1, activePage = 1 } = {}) => {
+  if (typeof total !== 'number') {
+    throw new TypeError('Total is Not a Number => Total isNaN.');
+  }
+  if (typeof activePage !== 'number') {
+    throw new TypeError('Active Page is Not a Number => Active Page isNaN.');
+  }
   if (total <= 5) {
     return Array.from({ length: total }, (_, i) => i + 1);
   }

@@ -39,6 +39,10 @@ export default function AppContent({
   );
 }
 
+AppContent.defaultProps = {
+  repos: [],
+};
+
 AppContent.propTypes = {
   userinfo: PropTypes.objectOf(PropTypes.object),
   repos: PropTypes.arrayOf(
