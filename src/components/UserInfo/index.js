@@ -30,13 +30,24 @@ export default function UserInfo({ userinfo }) {
   );
 }
 
+// UserInfo.defaultProps = {
+//   userinfo: {
+//     username: '',
+//     repos: '',
+//     followers: 0,
+//     following: 0,
+//     photo: '',
+//     login: '',
+//   },
+// };
+
 UserInfo.propTypes = {
   userinfo: PropTypes.shape({
-    username: PropTypes.string.isRequired,
-    repos: PropTypes.number.isRequired,
-    followers: PropTypes.number.isRequired,
-    following: PropTypes.number.isRequired,
-    photo: PropTypes.string.isRequired,
-    login: PropTypes.string.isRequired,
-  }).isRequired,
+    username: PropTypes.string,
+    repos: PropTypes.number,
+    followers: PropTypes.number,
+    following: PropTypes.number,
+    photo: PropTypes.string,
+    login: PropTypes.string,
+  }),
 };

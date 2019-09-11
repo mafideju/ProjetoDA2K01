@@ -57,5 +57,5 @@ module.exports = validate({
       utils: path.join(__dirname, 'src', 'utils', 'pagination'),
     },
   },
-  // devtools: 'source-map',
+  devtool: 'cheap-eval-source-map',
 });

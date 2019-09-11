@@ -16,5 +16,5 @@ export default function Search({ handleSearch }) {
 }
 
 Search.propTypes = {
-  handleSearch: PropTypes.func.isRequired,
+  handleSearch: PropTypes.func,
 };

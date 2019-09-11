@@ -29,10 +29,5 @@ Repos.defaultProps = {
 Repos.propTypes = {
   className: PropTypes.string,
   title: PropTypes.string.isRequired,
-  repos: PropTypes.arrayOf(
-    PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.number,
-    ]),
-  ),
+  repos: PropTypes.arrayOf(PropTypes.object),
 };

@@ -41,22 +41,20 @@ export default function AppContent({
 
 AppContent.defaultProps = {
   repos: [],
+  userinfo: {},
 };
 
 AppContent.propTypes = {
-  userinfo: PropTypes.objectOf(PropTypes.object),
-  repos: PropTypes.arrayOf(
-    PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.number,
-    ]),
-  ),
-  starred: PropTypes.arrayOf(
-    PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.number,
-    ]),
-  ),
+  userinfo: PropTypes.shape({
+    username: PropTypes.string,
+    photo: PropTypes.string,
+    login: PropTypes.string,
+    followers: PropTypes.number,
+    following: PropTypes.number,
+    repos: PropTypes.arrayOf(PropTypes.object),
+  }),
+  repos: PropTypes.arrayOf(PropTypes.object),
+  starred: PropTypes.arrayOf(PropTypes.object),
   handleSearch: PropTypes.func,
   getRepos: PropTypes.func,
   getStarred: PropTypes.func,
