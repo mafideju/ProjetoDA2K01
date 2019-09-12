@@ -1,10 +1,10 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Search from '../components/Search';
-import UserInfo from '../components/UserInfo';
-import Actions from '../components/Actions';
-import Repos from '../components/Repos';
-import Starred from '../components/Starred';
+import React from 'react' 
+import PropTypes from 'prop-types' 
+import Search from '../components/Search' 
+import UserInfo from '../components/UserInfo' 
+import Actions from '../components/Actions' 
+import Repos from '../components/Repos' 
+import Starred from '../components/Starred' 
 
 export default function AppContent({
   userinfo,
@@ -36,13 +36,12 @@ export default function AppContent({
       />
       )}
     </div>
-  );
+  ) 
 }
 
 AppContent.defaultProps = {
   repos: [],
-  userinfo: {},
-};
+} 
 
 AppContent.propTypes = {
   userinfo: PropTypes.shape({
@@ -51,7 +50,7 @@ AppContent.propTypes = {
     login: PropTypes.string,
     followers: PropTypes.number,
     following: PropTypes.number,
-    repos: PropTypes.arrayOf(PropTypes.object),
+    repos: PropTypes.number,
   }),
   repos: PropTypes.arrayOf(PropTypes.object),
   starred: PropTypes.arrayOf(PropTypes.object),
@@ -59,4 +58,4 @@ AppContent.propTypes = {
   getRepos: PropTypes.func,
   getStarred: PropTypes.func,
   isFetching: PropTypes.bool,
-};
+} 

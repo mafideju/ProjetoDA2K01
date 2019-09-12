@@ -14,7 +14,7 @@ export default class App extends Component {
     };
   }
 
-  handleSearch = (e) => {
+  handleSearch(e) {
     // if (onKeyUp) {
     //   this.setState({
     //     isFetching: true

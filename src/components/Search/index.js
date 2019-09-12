@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import styles from './SearchStyle.css';
+import React from 'react' 
+import PropTypes from 'prop-types' 
+import styles from './SearchStyle.css' 
 
 export default function Search({ handleSearch }) {
   return (
@@ -12,9 +12,9 @@ export default function Search({ handleSearch }) {
         onChange={handleSearch}
       />
     </div>
-  );
+  ) 
 }
 
 Search.propTypes = {
   handleSearch: PropTypes.func,
-};
+} 

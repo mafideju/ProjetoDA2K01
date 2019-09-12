@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import styles from './UserInfo.css';
+import React from 'react' 
+import PropTypes from 'prop-types' 
+import styles from './UserInfo.css' 
 
 export default function UserInfo({ userinfo }) {
   return (
@@ -27,7 +27,7 @@ export default function UserInfo({ userinfo }) {
       </ul>
 
     </div>
-  );
+  ) 
 }
 
 // UserInfo.defaultProps = {
@@ -39,7 +39,7 @@ export default function UserInfo({ userinfo }) {
 //     photo: '',
 //     login: '',
 //   },
-// };
+// } 
 
 UserInfo.propTypes = {
   userinfo: PropTypes.shape({
@@ -50,4 +50,4 @@ UserInfo.propTypes = {
     photo: PropTypes.string,
     login: PropTypes.string,
   }),
-};
+} 

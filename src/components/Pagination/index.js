@@ -1,14 +1,14 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import uuid from 'uuid';
-import Page from './Page';
-import pagination from '../../utils/pagination';
+import React from 'react' 
+import PropTypes from 'prop-types' 
+import uuid from 'uuid' 
+import Page from './Page' 
+import pagination from '../../utils/pagination' 
 
 export default function Pagination({
   total,
   activePage,
   pageLink,
-  onClick,
+  onClick
 }) {
   return (
     <ul style={{ backgroundColor: 'lightblue', listStyleType: 'none' }}>
@@ -27,12 +27,16 @@ export default function Pagination({
         ))
       }
     </ul>
-  );
+  )
+}
+
+Pagination.defaultProps = {
+  pageLink: ''
 }
 
 Pagination.propTypes = {
   total: PropTypes.number,
   activePage: PropTypes.number,
   pageLink: PropTypes.string,
-  onClick: PropTypes.func,
-};
+  onClick: PropTypes.func
+}

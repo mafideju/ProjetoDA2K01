@@ -1,5 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react' 
+import PropTypes from 'prop-types' 
 
 export default function Starred({ className, title, repos }) {
   return (
@@ -15,11 +15,11 @@ export default function Starred({ className, title, repos }) {
         ))}
       </ul>
     </div>
-  );
+  ) 
 }
 
 Starred.propTypes = {
   className: PropTypes.string,
   title: PropTypes.string.isRequired,
-  repos: PropTypes.arrayOf(PropTypes.object),
-};
+  repos: PropTypes.arrayOf(PropTypes.object)
+} 

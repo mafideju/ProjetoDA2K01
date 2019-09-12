@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
@@ -8,7 +7,7 @@ import './style/style.css';
 const renderApp = (NextApp) => {
   ReactDOM.render(
     <AppContainer>
-      <NextApp />
+      <NextApp/>
     </AppContainer>,
     document.getElementById('root'),
   );

@@ -1,6 +1,6 @@
-import React from 'react';
-import { storiesOf } from '@kadira/storybook';
-import Pagination from './index';
+import React from 'react' 
+import { storiesOf } from '@kadira/storybook' 
+import Pagination from './index' 
 
 storiesOf('Pagination', module)
   .add('to Link Only', () => (
@@ -14,6 +14,6 @@ storiesOf('Pagination', module)
       total={10}
       activePage={5}
       pageLink="http://localhost:7711/%page%"
-      onClick={(page) => { window.console.log(page); }}
+      onClick={(page) => { window.console.log(page)  }}
     />
-  ));
+  )) 

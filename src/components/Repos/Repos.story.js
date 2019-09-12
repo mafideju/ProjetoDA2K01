@@ -1,6 +1,6 @@
-import React from 'react';
-import { storiesOf } from '@kadira/storybook';
-import Repos from './index';
+import React from 'react' 
+import { storiesOf } from '@kadira/storybook' 
+import Repos from './index' 
 
 storiesOf('Repos', module)
   .add('to Repos', () => (
@@ -13,4 +13,4 @@ storiesOf('Repos', module)
         }]}
       />
     </h1>
-  ));
+  )) 
